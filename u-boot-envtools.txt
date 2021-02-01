@@ -1,0 +1,36 @@
+SRPM:
+gear-rpm -v -bs ./u-boot-tools.spec --commit
+
+SRPM -> RPM (Mipsel, BFK3.1):
+https://www.altlinux.org/Ports/mipsel/BuildHowto
+cd /home/voropaevdmtr/RPM/SRPMS
+
+mkdir $TMPDIR/hasher
+hsh --with-qemu=mipsel --target=mipsel --apt-config=apt.conf.mipsel --initroot-only $TMPDIR/hasher
+
+hsh --verbose  --with-qemu=mipsel --target=mipsel --apt-config=apt.conf.mipsel  $TMPDIR/hasher ./u-boot-tools-env-2020.10-alt1.src.rpm 
+
+cp $TMPDIR/hasher/repo/mipsel/RPMS.hasher/u-boot-tools-env-2020.10-alt1.mipsel.rpm /run/media/voropaevdmtr/Transcend
+
+mount -t ext
+
+ls /etc/binfmt.d/
+qemu-mipsel.conf  qemu-mipsel-for-hasher.conf
+
+# cat /etc/binfmt.d/qemu-mipsel.conf 
+:mipsel:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x08\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-mipsel-static:OCF
+
+
+ls /proc/sys/fs/binfmt_misc/
+mipsel  register  status
+
+cat /proc/sys/fs/binfmt_misc/*
+enabled
+interpreter /usr/bin/qemu-mipsel-static
+flags: OCF
+offset 0
+magic 7f454c4601010100000000000000000002000800
+mask ffffffffffffff00fffffffffffffffffeffffff
+
+
+
