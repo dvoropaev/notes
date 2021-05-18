@@ -1,0 +1,3 @@
+add_changelog .gear/...spec
+Configuration error: undefined packager
+Добавить packager в ~/.rpmmacros
