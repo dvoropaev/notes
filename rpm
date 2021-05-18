@@ -1,3 +1,7 @@
 add_changelog .gear/...spec
 Configuration error: undefined packager
 Добавить packager в ~/.rpmmacros
+
+rpm -qf полный_путь_до_файла указывает к какому пакету он принадлежит.
+rpm -qa список установленных пакетов
+
