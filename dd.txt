@@ -1,5 +1,5 @@
 ПРРАВИЛЬНАЯ ЗАПИСЬ ОБРАЗОВ:
 1) Размонтировать
 2) wipefs -a /dev/sdX
-3) dd if=slinux-9.1-aarch64.iso of=/dev/disk/by-id/XYZ bs=1M conv=fsync
+3) dd if=... of=/dev/sdX status=progress bs=1M conv=fsync
 
