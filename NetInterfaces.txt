@@ -1,2 +1,2 @@
 Посмотерть, виден ли сетевой адаптер:
-lspci  | grep -i ether --color
+lspci  | grep -i net --color
