@@ -1,6 +1,6 @@
+Суффикс 'q' - работа с 64битными значениями
 
 movq <src> <dst>
-
 movq %RAX, %RBX    Значение регистра RAX -> RBX
 movq (%RAX) %RBX   Значение по адресу в RAX -> RBX
 movq &42, %RBX     42 -> RBX
