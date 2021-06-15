@@ -3,7 +3,7 @@
 movq <src> <dst>
 movq %RAX, %RBX    Значение регистра RAX -> RBX
 movq (%RAX) %RBX   Значение по адресу в RAX -> RBX
-movq &42, %RBX     42 -> RBX
+movq $42, %RBX     42 -> RBX
 movq 42, %RBX      Значение по адресу 42 -> RBX
 movq $value, %RAX  Значение по адресу value -> RBX
 movq value, %RAX   Адрес value -> RAX
