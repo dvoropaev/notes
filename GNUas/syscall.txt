@@ -1,0 +1,25 @@
+https://man7.org/linux/man-pages/man2/syscall.2.html
+
+x86-64
+Инструкция: syscall
+Номер системного вызова: rax
+Ret val: rax
+Ret val2: rdx
+Notes: 5
+Аргументы (по порядку): rdi rsi rdx r10 r8 r9
+
+write:
+	Номер системного вызова: 1
+	1 параметр - файловый дескриптор (1 - для стандартного ввода)
+	2 параметр - указатель на строку
+	3 параметр - длина строки.
+
+	Пример:
+	movq    $1, %rax
+        movq    $1, %rdi           
+        movq    $hello_str, %rsi
+        movq    $hello_str_length, %rdx
+        syscall
+
+
+
