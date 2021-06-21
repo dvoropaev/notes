@@ -1,0 +1,20 @@
+set -e
+set -x
+
+disk=/dev/sdX
+umount ${disk}*
+
+mnt_dir="/tmp/${disk##*/}"
+mkdir -p -m755 ${mnt_dir}/data
+mkdir -p -m755 ${mnt_dir}/esp
+
+mount -t vfat -o rw,umask=0077,nodev,nosuid,noatime "${disk}1" "${mnt_dir}/esp"
+mount -t ext4 -o rw,nodev,nosuid,noatime,errors=remount-ro "${disk}2" "${mnt_dir}/data"
+
+#grub-install --target="${arch}-efi" --recheck --removable --no-nvram --boot-directory="${mnt_dir}/data" --efi-directory="${mnt_dir}/esp"
+grub-install --recheck --removable --no-nvram --boot-directory="${mnt_dir}/data" --efi-directory="${mnt_dir}/esp"
+
+
+sync
+umount ${disk}*
+
