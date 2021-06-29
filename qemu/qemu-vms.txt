@@ -1,0 +1,9 @@
+#Создать жесткий диск
+qemu-img create -f qcow2 <файл диска> 80G
+
+#Запустить VM
+qemu-system-x86_64 -hda <файл диска> -m 1512 -vga qxl
+-daemonize #сделать процесс фоновым
+
+
+
