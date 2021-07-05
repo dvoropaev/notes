@@ -4,10 +4,45 @@ w (от англ. word) — 2 байта (16 бит)
 l (от англ. long) — 4 байта (32 бита)
 q (от англ. quad) — 8 байт (64 бита)
 
-mov <src> <dst>
+===== Работа со стеком =====
+Стек растет в сторону меньших адресов
+RSP указывает на вершину стека
+
+pushq <src> уменьшает RSP на 8 и сохраняет по полученномку
+pushq $42
+pushq %RAX
+
+popq <dst> обратное действие pushq
+popq %RAX
+
+достать последний элемент не удаляя из стека:
+movq (%RSP), %RAX
+
+===== Безусловный переход =====
+jmp  <label>
+call <label>
+retq <label>
+
+
+mov <src>, <dst>    src -> dst
 movq %RAX, %RBX    Значение регистра RAX -> RBX
-movq (%RAX) %RBX   Значение по адресу в RAX -> RBX
+movq (%RAX), %RBX   Значение по адресу в RAX -> RBX
 movq $42, %RBX     42 -> RBX
 movq 42, %RBX      Значение по адресу 42 -> RBX
 movq $value, %RAX  Значение по адресу value -> RBX
 movq value, %RAX   Адрес value -> RAX
+
+add <src>, <dst>    src + dst -> dst
+addq %RAX, %RBX	   Значение в RAX + значение RBX в RBX
+addq %RAX, value	   Значение в RAX + значение по адресу value в value
+
+sub <src> <dst>    dst - src -> dst
+
+inc <op>    op + 1 -> op
+dec <op>    op - 1 -> op
+
+mul <op>	(op * RAX) mod 2^64 -> RAX
+		(op * RAX) / 2^64 -> RDX
+
+div <op>	(RDX * 2^64 + RAX) mod op -> RDX
+		(RDX * 2^64 + RAX) / op -> RAX
