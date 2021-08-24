@@ -1,1 +1,21 @@
+/usr/src/RPM
+BUILD
+RPMS - rpm пакеты? 
+SOURCES - тарболлы 	и патчи
+SPECS
+SRPMS
+
+
+
+
+
+
 /usr/src/RPM/BUILD/ <- сюда помещается тарболл
+
+/usr/src/tmp/***-buildroot
+
+
+Не удалять chroot:
+gear-hsh --lazy-cleanup
+
+
