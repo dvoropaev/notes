@@ -9,7 +9,7 @@ modinfo - информация о модуле
 insmod - загрузить модуль
 rmmod - удалить модуль
 
-
+lspci -v
 find /lib/modules -name *.ko
 find /lib/modules/$(uname -r) -name *.ko
 modprobe -c

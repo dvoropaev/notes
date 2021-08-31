@@ -1,1 +1,18 @@
-/usr/src/RPM/BUILD/ <- сюда помещается тарболл
+/usr/src/RPM
+BUILD	
+	../<name> исходники
+	../<name>/BUILD/src/ тут исходники и скомпилированные бинарники
+RPMS - rpm пакеты? 
+SOURCES - тарболлы и патчи
+SPECS
+SRPMS
+
+Wrote: /usr/src/RPM/SRPMS/zmap-2.1.1-alt1.src.rpm (w2.lzdio)
+
+/usr/src/tmp/***-buildroot
+
+
+Не удалять chroot:
+gear-hsh --lazy-cleanup
+
+
