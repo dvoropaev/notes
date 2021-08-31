@@ -1,16 +1,13 @@
 /usr/src/RPM
-BUILD
+BUILD	
+	../<name> исходники
+	../<name>/BUILD/src/ тут исходники и скомпилированные бинарники
 RPMS - rpm пакеты? 
-SOURCES - тарболлы 	и патчи
+SOURCES - тарболлы и патчи
 SPECS
 SRPMS
 
-
-
-
-
-
-/usr/src/RPM/BUILD/ <- сюда помещается тарболл
+Wrote: /usr/src/RPM/SRPMS/zmap-2.1.1-alt1.src.rpm (w2.lzdio)
 
 /usr/src/tmp/***-buildroot
 
