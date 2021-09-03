@@ -6,19 +6,19 @@ hellostr:
 .text
 .global _start
 _start:
-        movq $0, %rax
+        movq $__NR_read, %rax
         movq $0, %rdi
         movq $name, %rsi
         movq $100, %rdx
 	syscall
 
-        movq $1, %rax
+        movq $__NR_write, %rax
         movq $1, %rdi
         movq $hellostr, %rsi
         movq $14, %rdx
         syscall
 	
-	movq $1, %rax
+	movq $__NR_write, %rax
         movq $1, %rdi
 	movq $name, %rsi
 	movq $100, %rdx
