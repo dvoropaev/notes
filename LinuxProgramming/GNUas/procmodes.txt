@@ -1,0 +1,14 @@
+Long Mode
+
+Legacy Mode
+- Real
+	Логический адрес состоит из двух частей:
+	SEG - сегмент (16 бит). используется соответствующий сегментный регистр
+	OFF - смещение (16 бит)
+	физический адрес: (SEG*16+OFF) mod 2^20 
+- Protected
+- Virtual 8086
+
+System Managament Mode
+
+https://ru.wikipedia.org/wiki/X86-64#Long_Mode
