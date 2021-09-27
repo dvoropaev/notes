@@ -1,0 +1,10 @@
+#example: git.sec:/gears/k/kernel-image-mitx-xpa.git commit 51ea2274a9985f4bc767215b6e438df69e68bd7f kernel-image-mitx-xpa-4.4.259-alt2
+
+sudo apt-get install gcc-mipsel-linux-gnu
+
+cp -vf ./config-mipsel .config
+export ARCH=mips
+export CROSS_COMPILE=mipsel-linux-gnu-
+make -j4 vmlinux (modules dtbs)
+
+
