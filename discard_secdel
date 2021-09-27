@@ -1,0 +1,65 @@
+# secdelsetup /dev/sdb1 /dev/mapper/secdel1
+# "alibaba" > /mnt/secdel1/test.txt
+# mkdir /mnt/secdel1
+# mount /dev/mapper/secdel1 /mnt/secdel1/ -o discard
+# echo "alibaba" > /mnt/secdel1/test.txt
+# strings /dev/sdb1 | grep -E "alibaba|test.txt"
+test.txt
+alibaba
+# rm /mnt/secdel1/test.txt
+# strings /dev/sdb1 | grep -E "alibaba|test.txt"
+test.txt
+
+
+
+
+
+
+
+
+
+# modprobe dm-secdel
+# dd if=/dev/zero of=./loop.img bs=1MiB count=100
+# losetup /dev/loop1 ./loop.img
+# mkfs -t ext4 /dev/loop1
+
+
+# mount /dev/loop1 /mnt/loop1/ -o discard
+
+# echo "alibaba" > /mnt/loop1/test.txt
+# strings loop.img | grep alibaba
+alibaba
+# strings loop.img | grep test.txt
+test.txt
+test.txt
+
+# rm  /mnt/loop1/test.txt
+# strings loop.img | grep alibaba
+(пусто)
+# strings loop.img | grep test.txt
+test.txt
+test.txt
+test.txt
+
+
+
+
+# umount /dev/loop1
+# mount /dev/loop1 /mnt/loop1/ 
+# echo "alibaba2" > /mnt/loop1/test2.txt
+# strings loop.img | grep alibaba2
+alibaba2
+# strings loop.img | grep test2.txt
+test2.txt
+test2.txt   
+# rm  /mnt/loop1/test2.txt 
+# sync
+# strings loop.img | grep alibaba2
+alibaba2
+# strings loop.img | grep test2.txt
+test2.txt
+test2.txt
+test2.txt
+
+
+
