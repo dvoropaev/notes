@@ -1,0 +1,16 @@
+#example: git://git.altlinux.org/people/iv/packages/kernel-image.git 06c6c8a1c51f8d07dbc258439833cb146e708b06  kernel-image-bfk3-def-5.4.145-alt2
+
+sudo apt-get install gcc-mipsel-linux-gnu
+
+flex
+
+scripts/kconfig/merge_config.sh \
+  arch/mips/configs/baikal_bfk3_defconfig \
+  config-add		
+
+cp -vf ./config-mipsel .config
+export ARCH=mips
+export CROSS_COMPILE=mipsel-linux-gnu-
+make -j4 vmlinux (modules dtbs)
+
+
