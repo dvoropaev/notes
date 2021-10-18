@@ -1,0 +1,49 @@
+mark:$6$.n.:17736:0:99999:7:::
+[--] [----] [---] - [---] ----
+|      |      |   |   |   |||+-----------> 9. Неиспользованный
+|      |      |   |   |   ||+------------> 8. Срок годности
+|      |      |   |   |   |+-------------> 7. Период бездействия
+|      |      |   |   |   +--------------> 6. Период предупреждения
+|      |      |   |   +------------------> 5. Максимальный возраст пароля
+|      |      |   +----------------------> 4. Минимальный возраст пароля
+|      |      +--------------------------> 3. Последнее изменение пароля
+|      +---------------------------------> 2. Зашифрованный пароль
++----------------------------------------> 1. Имя пользователя
+
+$1  MD5
+$2a Blowfish (not in mainline glibc; added in some Linux distributions)
+$2y  Eksblowfish
+$5 SHA-256 (since glibc 2.7)
+$6 SHA-512 (since glibc 2.7)
+$y  yescrypt
+$gy gost-yescrypt
+
+Формат строки с хэшем: $gy$params$salt$hash, где params, salt и hash закодированы в base64, а "gy" текстовый идентификатор
+
+
+Создать MD5 Хэш пароля:
+
+python -c "import random,string,crypt;
+randomsalt = ''.join(random.sample(string.ascii_letters,8));
+print crypt.crypt('MySecretPassword', '\$1\$%s\$' % randomsalt)"
+---
+$1$YjOzcqrf$Zqx4sx5CQRuEIFCdOLAJV0
+Создать SHA-256 Хэш пароля:
+
+python -c "import random,string,crypt;
+randomsalt = ''.join(random.sample(string.ascii_letters,8));
+print crypt.crypt('MySecretPassword', '\$5\$%s\$' % randomsalt)"
+---
+$5$LgsPuaeR$OCtm.3tpbS/wyOZAIy6dsVNP4x0GyohyGebkIz15e88
+Создать SHA-512 Хэш пароля:
+
+python -c "import random,string,crypt;
+randomsalt = ''.join(random.sample(string.ascii_letters,8));
+print crypt.crypt('MySecretPassword', '\$6\$%s\$' % randomsalt)"
+---
+$6$HMpFTkgb$WqzuqMqYbjWsXFrOtvZPo.1gIkH6HiXJGr4QPv.k26jE.3mE.sdf3dds[...]
+
+
+python -c "import random,string,crypt; randomsalt = ''.join(random.sample(string.ascii_letters,8)); print crypt.crypt('MySecretPassword', '\$1\$%s\$' % randomsalt)"
+
+
