@@ -1,2 +1,7 @@
 выводить логи в файл и на экран:
  2>&1 | tee ./log
+
+массовое переименование:
+for i in *.sh;
+do mv $i `basename $i sh`sh.bak;
+done
