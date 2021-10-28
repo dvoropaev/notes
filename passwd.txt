@@ -16,7 +16,7 @@ $2y  Eksblowfish
 $5 SHA-256 (since glibc 2.7)
 $6 SHA-512 (since glibc 2.7)
 $y  yescrypt
-$gy gost-yescrypt
+$gy gost-yescrypt 
 
 Формат строки с хэшем: $gy$params$salt$hash, где params, salt и hash закодированы в base64, а "gy" текстовый идентификатор
 
